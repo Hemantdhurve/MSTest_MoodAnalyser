@@ -8,14 +8,15 @@ namespace MoodAnalyserProb
         {
             Console.WriteLine("Welcome to Mood Analyser Program");
 
-            //Creating object of MoodAnalyser class
-
-            MoodAnalyser moodobj=new MoodAnalyser();
-
+          
             Console.WriteLine("Enter your Mood:");
             string message=Console.ReadLine();
+            //Creating object of MoodAnalyser class
 
-            Console.WriteLine(moodobj.AnalyseMood(message));
+            MoodAnalyser moodobj = new MoodAnalyser(message);
+
+
+            Console.WriteLine(moodobj.AnalyseMood());
         }
     }
 }

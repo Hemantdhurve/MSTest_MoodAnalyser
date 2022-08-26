@@ -8,7 +8,19 @@ namespace MoodAnalyserProb
 {
     public class MoodAnalyser
     {
-        public string AnalyseMood(string message)
+        //Refactor to take message in Constructor
+        public string message;
+        public MoodAnalyser()
+        {
+                
+        }
+
+        public MoodAnalyser(string message)
+        {
+            this.message = message;
+        }
+
+        public string AnalyseMood()
         {
             if (message.ToUpper().Contains("SAD"))
             {
