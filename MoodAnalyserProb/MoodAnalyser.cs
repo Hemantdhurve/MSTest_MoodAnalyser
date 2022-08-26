@@ -22,14 +22,26 @@ namespace MoodAnalyserProb
 
         public string AnalyseMood()
         {
-            if (message.ToUpper().Contains("SAD"))
+            try
             {
-                return "Sad Mood";
+
+                if (message.ToUpper().Contains("SAD"))
+                {
+                    return "Sad Mood";
+                }
+                else
+                {
+                    return "Happy Mood";
+                }
             }
-            else
+            catch(Exception ex)
             {
-                return "Happy Mood";
+                return "Happy";
             }
+           
+            
         }
+
+       
     }
 }
