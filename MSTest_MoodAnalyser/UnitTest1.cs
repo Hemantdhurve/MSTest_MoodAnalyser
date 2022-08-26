@@ -8,7 +8,7 @@ namespace MSTest_MoodAnalyser
         //Test Case 1.1  Given I am in Sad Mood Should return Sad Mood
 
         [TestMethod]
-        public void TestMethod1()
+        public void GivenIamInSADMood_ShouldReturnSAD()
         {
 
             //Arrange
@@ -28,28 +28,5 @@ namespace MSTest_MoodAnalyser
             Assert.AreEqual(expected, actual);
         }
 
-
-        //Test Case 1.2  Given I am in Any Mood Should return Happy Mood
-
-        [TestMethod]
-        public void TestMethod2()
-        {
-
-            //Arrange
-
-            MoodAnalyser obj = new MoodAnalyser();
-
-            string message = "I am in Any Mood";                 //we can also pass this message directly in the object
-
-            string expected = "Happy Mood";
-
-            //Act
-
-            string actual = obj.AnalyseMood(message);
-
-            //Assert
-
-            Assert.AreEqual(expected, actual);
-        }
     }
 }
