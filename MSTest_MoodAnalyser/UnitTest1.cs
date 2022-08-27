@@ -69,5 +69,23 @@ namespace MSTest_MoodAnalyser
 
             Assert.AreEqual(actual, "Happy");
         }
+
+        //UC3 Given Null or Empty Message when Analyse Should Return Exception HandleMessage
+
+        [TestMethod]
+
+        public void GivenNullorEmptyMessage_ShouldReturnExceptionHandleMessage()
+        {
+            //Arrange
+            string message = "";
+            MoodAnalyser obj=new MoodAnalyser(message);
+            string expected = "Mood Should Not Be Empty";
+
+            //Act
+            string actual = obj.AnalyseMood();
+            
+            //Assert
+            Assert.AreEqual(expected,actual);
+        }
     }
 }

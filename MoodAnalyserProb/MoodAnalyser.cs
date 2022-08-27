@@ -24,7 +24,11 @@ namespace MoodAnalyserProb
         {
             try
             {
+                if (this.message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MESSAGE, "Mood Should Not Be Empty");
 
+                }
                 if (message.ToUpper().Contains("SAD"))
                 {
                     return "Sad";
@@ -34,10 +38,14 @@ namespace MoodAnalyserProb
                     return "Happy";
                 }
             }
-            catch(Exception ex)
+            catch(NullReferenceException)
             {
-                return "Happy";
-            }  
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NULL_MESSAGE, "Mood Should Not Be Null");
+            } 
+            catch(MoodAnalyserCustomException e)
+            {
+                return "Mood Should Not Be Empty";
+            }
         }  
     }
 }
