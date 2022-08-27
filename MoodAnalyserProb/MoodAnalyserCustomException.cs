@@ -10,8 +10,12 @@ namespace MoodAnalyserProb
     {
         public enum ExceptionType
         {
-            NULL_MESSAGE,   EMPTY_MESSAGE,    NO_SUCH_CLASS,
-            NO_SUCH_CONSTRUCTOR,    NO_SUCH_FIELD,    NO_SUCH_METHOD,
+            NULL_MESSAGE,  
+            EMPTY_MESSAGE,    
+            NO_SUCH_CLASS,
+            NO_SUCH_CONSTRUCTOR,   
+            NO_SUCH_FIELD,    
+            NO_SUCH_METHOD,
             OBJECT_CREATION_ISSUE
 
         }

@@ -38,11 +38,8 @@ namespace MoodAnalyserProb
                     return "Happy";
                 }
             }
-            catch(NullReferenceException)
-            {
-                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NULL_MESSAGE, "Mood Should Not Be Null");
-            } 
-            catch(MoodAnalyserCustomException e)
+           
+            catch(MoodAnalyserCustomException)
             {
                 return "Mood Should Not Be Empty";
             }
