@@ -202,10 +202,10 @@ namespace MSTest_MoodAnalyser
             object expected = new MoodAnalyser("HAPPY"); 
             
             //Act
-            object obj = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyserProb.MoodAnalyser", "MoodAnalyser", "HAPPY");
+            object actual = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyserProb.MoodAnalyser", "MoodAnalyser", "HAPPY");
             
             //Assert
-            expected.Equals(obj);
+            expected.Equals(actual);
            
         }
     }
