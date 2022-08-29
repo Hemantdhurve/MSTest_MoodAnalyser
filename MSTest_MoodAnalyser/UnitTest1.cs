@@ -107,7 +107,7 @@ namespace MSTest_MoodAnalyser
             }
         }
 
-        //Test Case 3.1 Given Null Mood Should throw MoodAnalysis Exception
+        //Test Case 3.2 Given Empty Mood Should throw MoodAnalysis Exception
 
         [TestMethod]
         public void GivenEmptyMood_ShouldthrowMoodAnalysisException_IndicatingEmptyMood()
