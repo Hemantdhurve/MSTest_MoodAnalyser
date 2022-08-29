@@ -10,6 +10,8 @@ namespace MoodAnalyserProb
     {
         //Refactor to take message in Constructor
         public string message;
+        string className;
+        string constructorName;
         public MoodAnalyser()
         {
                 
@@ -18,6 +20,10 @@ namespace MoodAnalyserProb
         public MoodAnalyser(string message)
         {
             this.message = message;
+        }
+        public MoodAnalyser(string className,string constructorName)
+        {
+
         }
 
         public string AnalyseMood()
@@ -39,9 +45,11 @@ namespace MoodAnalyserProb
                 }
             }
            
-            catch(MoodAnalyserCustomException)
+            catch(MoodAnalyserCustomException obj)
             {
-                return "Mood Should Not Be Empty";
+                //return "Mood Should Not Be Empty";
+                string exception = obj.Message;
+                return exception;
             }
         }  
     }
