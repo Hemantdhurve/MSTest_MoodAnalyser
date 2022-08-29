@@ -173,5 +173,24 @@ namespace MSTest_MoodAnalyser
                 Assert.AreEqual("Class not found", e.Message);
             }
         }
+
+        //Test Case 4.3
+        [TestMethod]
+        public void GivenImpoperConstructorName_ShouldThrowMoodAnalyseException_IndicatingNoSuchConstructor()
+        {
+            try
+            {
+                //Arrange
+                string className = "MoodAnalyserProb.MoodAnalyser";     
+                string constructorName = "DemoConstructorName";               //wrong constructorName passed to pass test
+                //Act
+                object resultObj = MoodAnalyserFactory.CreateMoodAnalyser(className, constructorName);
+            }
+            catch (MoodAnalyserCustomException e)
+            {
+                //Assert
+                Assert.AreEqual("Constructor not Found", e.Message);
+            }
+        }
     }
 }
