@@ -10,10 +10,10 @@ namespace MoodAnalyserProb
 {
     public class MoodAnalyserFactory
     {
-        public static object CreateMoodAnalyser(string className,string constructorName)
+        public static object CreateMoodAnalyser(string className, string constructorName)
         {
             string pattern = @"." + constructorName + "$";
-            Match result=Regex.Match(pattern, className);
+            Match result = Regex.Match(pattern, className);
             try
             {
                 if (result.Success)
@@ -38,7 +38,7 @@ namespace MoodAnalyserProb
                     throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_METHOD, "Constructor not Found");
                 }
             }
-            catch(MoodAnalyserCustomException e)
+            catch (MoodAnalyserCustomException e)
             {
                 return e.Message;
             }
@@ -47,26 +47,39 @@ namespace MoodAnalyserProb
         //UC5
         public static object CreateMoodAnalyseUsingParameterizedConstructor(string className, string constructorName, string message)
         {
-            Type type = typeof(MoodAnalyser);
-            if (type.Name.Equals(className) || type.FullName.Equals(className))
+            try
             {
-                if (type.Name.Equals(constructorName))
+
+                Type type = typeof(MoodAnalyser);
+                if (type.Name.Equals(className) || type.FullName.Equals(className))
                 {
-                    ConstructorInfo ctor = type.GetConstructor(new[] { typeof(string) });
-                    object instance = ctor.Invoke(new object[] { message });
-                    return instance;
+                    if (type.Name.Equals(constructorName))
+                    {
+                        ConstructorInfo ctor = type.GetConstructor(new[] { typeof(string) });
+                        object instance = ctor.Invoke(new object[] { message });
+                        return instance;
+                    }
+                    else
+                    {
+                        throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_METHOD, "Constructor not Found");
+                    }
                 }
                 else
                 {
-                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_METHOD, "Constructor not Found");
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_CLASS, "Class not Found");
+
                 }
+
             }
-            else
+            catch(MoodAnalyserCustomException ex)
             {
-                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_CLASS, "Class not Found");
-
+                return ex.Message;
             }
-        }
 
+        }
     }
+
+
+
 }
+
