@@ -276,5 +276,26 @@ namespace MSTest_MoodAnalyser
             Assert.AreEqual(expected, mood);
         }
 
+        //Test Case 6.2 Given Improper Method Should throw Mood Analysis Exception
+
+        [TestMethod]
+        public void GivenImproperMethod_ShouldThrowException()
+        {
+            try
+            {
+                //Arrange
+               // string expected = "No Such Method Found";
+
+                //Act
+                string mood = MoodAnalyserReflector.InvokeAnalyseMood("Happy", "AnalyseChecking");     //passing Wrong MethodName
+            }
+            catch (MoodAnalyserCustomException e)
+            {
+
+                //Assert
+                Assert.AreEqual("No Such Method Found", e.Message);
+            }
+        }
+
     }
 }
