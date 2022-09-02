@@ -259,6 +259,22 @@ namespace MSTest_MoodAnalyser
             }
 
         }
+       
+
+        //Test Case 6.1 Given Happy Message using Reflector when proper should return Happy
+
+        [TestMethod]
+        public void GivenHappyMessageWhenProper_ShouldReturnHappy()
+        {
+            //Arrange
+            string expected = "Happy";
+
+            //Act
+            string mood = MoodAnalyserReflector.InvokeAnalyseMood("Happy", "AnalyseMood");     //AnalyseMood = methodName
+
+            //Assert
+            Assert.AreEqual(expected, mood);
+        }
 
     }
 }

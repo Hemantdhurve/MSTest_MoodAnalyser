@@ -28,8 +28,10 @@ namespace MoodAnalyserProb
 
         public string AnalyseMood()
         {
+            string mood;
             try
             {
+                mood = this.message.Contains("Sad") || this.message.Contains("sad") ? "Sad" : "Happy";
                 if (this.message.Equals(string.Empty))
                 {
                     throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MESSAGE, "Mood Should Not Be Empty");
